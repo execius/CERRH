@@ -9,6 +9,19 @@
 #define LOG_ON 1
 #define LOG_OFF 0
 
+/*
+ * Thread-safety notes:
+ *
+ * - Each thread has its own error context.
+ * - Each thread must call Error_InitGlobalCtx() before use.
+ * - Each thread must call Error_CleanupGlobalCtx() before exit.
+ *
+ * - Logging to the same file path from multiple threads is allowed,
+ *   but log output may interleave and ordering is unspecified.
+ *
+ * - For serialized logs, users must provide their own synchronization
+ *   or use distinct log files per thread.
+ */
 
 
 /*opaque typing*/

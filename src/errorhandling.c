@@ -16,7 +16,7 @@ typedef struct ErrorStruct_s {
 }ErrorStruct_t;
 
 
-static ErrorConfig_t *global_ctx = NULL;
+static _Thread_local ErrorConfig_t *global_ctx = NULL;
 
 
 int Error_InitGlobalCtx(void){
